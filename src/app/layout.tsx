@@ -17,11 +17,17 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`w-screen h-screen ${inter.className} bg-primary flex flex-col`}
+                className={`w-screen h-screen ${inter.className} bg-secondary flex flex-col`}
             >
                 <Navbar />
-                <main className="flex-grow overflow-y-auto">{children}</main>
-                <Footer />
+                <main className="flex flex-col flex-grow items-center overflow-y-auto">
+                    <div className="w-full md:w-3/5 max-w-[768px] flex flex-col px-4 md:px-0 py-4">
+                        {children}
+                    </div>
+                    <div className="w-full h-fit mt-auto">
+                        <Footer />
+                    </div>
+                </main>
             </body>
         </html>
     );

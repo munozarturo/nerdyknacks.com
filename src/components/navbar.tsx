@@ -49,7 +49,7 @@ const Navbar = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
         return (
             <nav
                 className={cn(
-                    "w-full h-16 flex flex-row items-center px-28 shadow-lg bg-secondary",
+                    "w-full min-h-16 flex flex-row items-center px-28 shadow-lg bg-secondary",
                     className
                 )}
                 {...props}
