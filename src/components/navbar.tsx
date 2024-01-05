@@ -27,7 +27,7 @@ const NavigationLink = React.forwardRef<HTMLAnchorElement, NavigationLinkProps>(
             <Link
                 className={cn(
                     isActive()
-                        ? "text-lg font-bold rounded-md px-2 text-secondary bg-primary hover:bg-secondary hover:text-primary"
+                        ? "text-lg font-bold rounded-md px-2 text-secondary bg-primary"
                         : "text-lg font-bold rounded-md px-2 text-primary bg-secondary hover:bg-primary hover:text-secondary",
                     className
                 )}
