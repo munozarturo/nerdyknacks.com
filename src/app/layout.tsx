@@ -16,10 +16,12 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className={`w-screen ${inter.className} bg-primary`}>
-                <Navbar className="bg-secondary" />
-                {children}
-                {/* <Footer /> */}
+            <body
+                className={`w-screen h-screen ${inter.className} bg-primary flex flex-col`}
+            >
+                <Navbar />
+                <main className="flex-grow overflow-y-auto">{children}</main>
+                <Footer />
             </body>
         </html>
     );
