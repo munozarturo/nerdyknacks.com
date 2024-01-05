@@ -55,14 +55,14 @@ const Navbar = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
                 {...props}
                 ref={ref}
             >
-                <div className="w-fit h-full">
+                <div className="w-fit h-full flex flex-row items-center justify-center">
                     <Link href="/home">
-                        {/* <Image
-                        src={}
-                        width={}
-                        height={}
-                        alt="nerdyknacks.com logo"
-                    /> */}
+                        <Image
+                            src="/brand/logo/logo_wide_light.svg"
+                            height={40}
+                            width={114}
+                            alt="nerdyknacks.com logo"
+                        />
                     </Link>
                 </div>
                 <ul className="w-full h-full flex flex-row justify-end">
