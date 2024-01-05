@@ -27,8 +27,8 @@ const NavigationLink = React.forwardRef<HTMLAnchorElement, NavigationLinkProps>(
             <Link
                 className={cn(
                     isActive()
-                        ? "text-lg font-bold rounded-md px-2 text-secondary bg-primary"
-                        : "text-lg font-bold rounded-md px-2 text-primary bg-secondary hover:bg-primary hover:text-secondary",
+                        ? "text-lg font-bold rounded-md py-1 px-2 text-secondary bg-primary"
+                        : "text-lg font-bold rounded-md py-1 px-2 text-primary bg-secondary hover:bg-primary hover:text-secondary",
                     className
                 )}
                 href={href}
@@ -64,18 +64,26 @@ const Navbar = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
                         />
                     </Link>
                 </div>
-                <ul className="w-full h-full flex flex-row justify-end">
-                    <li className="w-fit h-full flex flex-row items-center gap-3">
-                        <NavigationLink href="/home">home</NavigationLink>
-                        <NavigationLink href="/blog" activeOnSubpath>
-                            blog
-                        </NavigationLink>
-                        <NavigationLink href="/projects" activeOnSubpath>
-                            projects
-                        </NavigationLink>
-                        <NavigationLink href="/about">about</NavigationLink>
-                    </li>
-                </ul>
+                <div className="w-full h-full flex flex-row justify-end items-center">
+                    <ul className="w-fit h-full flex flex-row justify-center items-center gap-3">
+                        <li className="w-fit h-fit">
+                            <NavigationLink href="/home">home</NavigationLink>
+                        </li>
+                        <li className="w-fit h-fit">
+                            <NavigationLink href="/blog" activeOnSubpath>
+                                blog
+                            </NavigationLink>
+                        </li>
+                        <li className="w-fit h-fit">
+                            <NavigationLink href="/projects" activeOnSubpath>
+                                projects
+                            </NavigationLink>
+                        </li>
+                        <li className="w-fit h-fit">
+                            <NavigationLink href="/about">about</NavigationLink>
+                        </li>
+                    </ul>
+                </div>
             </nav>
         );
     }
