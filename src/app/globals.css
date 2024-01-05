@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom Scrollbar Styles */
+.custom-scrollbar {
+    scrollbar-color: #c9c7b3; /* thumb and track color */
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 12px; /* scrollbar width */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #c9c7b3; /* thumb color */
+    border-radius: 2px; /* rounded corners */
+}
+
+/* Optional: add hover styles for the scrollbar thumb */
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #cfcfc8; /* color when hovered */
+}
