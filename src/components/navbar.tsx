@@ -9,13 +9,22 @@ import { usePathname } from "next/navigation";
 
 interface NavigationLinkProps extends HTMLAttributes<HTMLAnchorElement> {
     href: string;
+    pathname: string;
     activeOnSubpath?: boolean;
 }
 
 const NavigationLink = React.forwardRef<HTMLAnchorElement, NavigationLinkProps>(
-    ({ className, href, activeOnSubpath = false, children, ...props }, ref) => {
-        const pathname = usePathname();
-
+    (
+        {
+            className,
+            pathname,
+            href,
+            activeOnSubpath = false,
+            children,
+            ...props
+        },
+        ref
+    ) => {
         const isActive = (): boolean => {
             if (activeOnSubpath) {
                 return pathname.startsWith(href);
@@ -45,6 +54,8 @@ NavigationLink.displayName = "NavigationLink";
 
 const Navbar = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
     ({ className, ...props }, ref) => {
+        const pathname = usePathname();
+
         return (
             <nav
                 className={cn(
@@ -67,20 +78,32 @@ const Navbar = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
                 <div className="w-full h-full flex flex-row justify-end items-center">
                     <ul className="w-fit h-full flex flex-row justify-center items-center gap-3">
                         <li className="w-fit h-fit">
-                            <NavigationLink href="/home">home</NavigationLink>
+                            <NavigationLink href="/home" pathname={pathname}>
+                                home
+                            </NavigationLink>
                         </li>
                         <li className="w-fit h-fit">
-                            <NavigationLink href="/blog" activeOnSubpath>
+                            <NavigationLink
+                                href="/blog"
+                                pathname={pathname}
+                                activeOnSubpath
+                            >
                                 blog
                             </NavigationLink>
                         </li>
                         <li className="w-fit h-fit">
-                            <NavigationLink href="/projects" activeOnSubpath>
+                            <NavigationLink
+                                href="/projects"
+                                pathname={pathname}
+                                activeOnSubpath
+                            >
                                 projects
                             </NavigationLink>
                         </li>
                         <li className="w-fit h-fit">
-                            <NavigationLink href="/about">about</NavigationLink>
+                            <NavigationLink href="/about" pathname={pathname}>
+                                about
+                            </NavigationLink>
                         </li>
                     </ul>
                 </div>
