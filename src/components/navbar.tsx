@@ -23,15 +23,14 @@ const NavigationLink = React.forwardRef<HTMLAnchorElement, NavigationLinkProps>(
             return pathname === href;
         };
 
-        const getStyleClasses = (isActive: boolean): string => {
-            const primaryColor = isActive ? "secondary" : "primary";
-            const secondaryColor = isActive ? "primary" : "secondary";
-            return `text-lg font-bold rounded-md px-2 text-${primaryColor} bg-${secondaryColor} hover:bg-${primaryColor} hover:text-${secondaryColor}`;
-        };
-
         return (
             <Link
-                className={cn(getStyleClasses(isActive()), className)}
+                className={cn(
+                    isActive()
+                        ? "text-lg font-bold rounded-md px-2 text-secondary bg-primary hover:bg-secondary hover:text-primary"
+                        : "text-lg font-bold rounded-md px-2 text-primary bg-secondary hover:bg-primary hover:text-secondary",
+                    className
+                )}
                 href={href}
                 ref={ref}
                 {...props}
