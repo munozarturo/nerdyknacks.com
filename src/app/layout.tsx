@@ -17,7 +17,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`w-screen min-h-screen ${inter.className} bg-sc-400 flex flex-col custom-scrollbar`}
+                className={`w-screen min-h-screen ${inter.className} bg-secondary-500 flex flex-col custom-scrollbar`}
             >
                 <Navbar />
                 <main className="w-full flex flex-col flex-grow items-center">

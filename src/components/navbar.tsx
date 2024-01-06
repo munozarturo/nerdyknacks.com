@@ -71,7 +71,7 @@ const Navbar = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
         return (
             <nav
                 className={cn(
-                    "sticky top-0 w-full min-h-24 md:min-h-16 flex flex-col md:flex-row items-center justify-center gap-2 md:px-14 lg:px-20 xl:px-24 2xl:px-28 shadow-lg bg-secondary-500 transform duration-300 ease-in-out",
+                    "sticky top-0 w-full min-h-24 md:min-h-16 flex flex-col md:flex-row items-center justify-center gap-2 md:px-14 lg:px-20 xl:px-24 2xl:px-28 shadow-2xl bg-secondary-500 transform duration-300 ease-in-out",
                     hideNavbar ? "-translate-y-full" : "",
                     className
                 )}
