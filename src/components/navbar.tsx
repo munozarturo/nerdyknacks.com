@@ -37,8 +37,8 @@ const NavigationLink = React.forwardRef<HTMLAnchorElement, NavigationLinkProps>(
             <Link
                 className={cn(
                     isActive()
-                        ? "text-md md:text-lg font-bold rounded-md py-1 px-1 md:px-2 text-secondary bg-primary"
-                        : "text-md md:text-lg font-bold rounded-md py-1 px-1 md:px-2 text-primary bg-secondary hover:bg-primary hover:text-secondary",
+                        ? "text-md md:text-lg font-bold rounded-md py-1 px-1 md:px-2 text-secondary-500 bg-primary-500"
+                        : "text-md md:text-lg font-bold rounded-md py-1 px-1 md:px-2 text-primary-500 bg-secondary-500 hover:bg-primary-500 hover:text-secondary-500",
                     className
                 )}
                 href={href}
@@ -71,7 +71,7 @@ const Navbar = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
         return (
             <nav
                 className={cn(
-                    "sticky top-0 w-full min-h-24 md:min-h-16 flex flex-col md:flex-row items-center justify-center gap-2 md:px-14 lg:px-20 xl:px-24 2xl:px-28 shadow-lg bg-secondary transform duration-300 ease-in-out",
+                    "sticky top-0 w-full min-h-24 md:min-h-16 flex flex-col md:flex-row items-center justify-center gap-2 md:px-14 lg:px-20 xl:px-24 2xl:px-28 shadow-lg bg-secondary-500 transform duration-300 ease-in-out",
                     hideNavbar ? "-translate-y-full" : "",
                     className
                 )}

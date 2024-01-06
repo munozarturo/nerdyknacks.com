@@ -1,3 +1,5 @@
+import { PageContent } from "@/components/page-content";
+
 export default function About() {
-    return <main className=""></main>;
+    return <PageContent></PageContent>;
 }
