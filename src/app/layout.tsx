@@ -23,9 +23,6 @@ export default function RootLayout({
                 <main className="w-full flex flex-col flex-grow items-center">
                     <div className="w-full md:w-3/5 max-w-[768px] flex flex-col px-4 md:px-0 py-4">
                         {children}
-                        {[...Array(200)].map((_, i) => (
-                            <p key={i}>something</p>
-                        ))}
                     </div>
                     <div className="w-full h-fit mt-auto">
                         <Footer />

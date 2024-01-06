@@ -8,7 +8,7 @@ const Footer = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
         return (
             <div
                 className={cn(
-                    "w-full min-h-16 flex flex-row items-center justify-end px-28 bg-secondary",
+                    "w-full min-h-16 flex flex-row items-center justify-center md:justify-end px-16 md:px-28 bg-secondary",
                     className
                 )}
                 {...props}
