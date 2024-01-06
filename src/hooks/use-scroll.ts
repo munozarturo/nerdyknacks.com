@@ -1,14 +1,14 @@
-import React from "react";
+import { createContext, useEffect, useState } from "react";
 
-function useScrollListener() {
-    const [data, setData] = React.useState({
+function useScroll() {
+    const [data, setData] = useState({
         x: 0,
         y: 0,
         lastX: 0,
         lastY: 0,
     });
 
-    React.useEffect(() => {
+    useEffect(() => {
         const handleScroll = () => {
             setData((last) => {
                 return {
@@ -31,6 +31,6 @@ function useScrollListener() {
     return data;
 }
 
-const ScrollContext = React.createContext(null);
+const ScrollContext = createContext(null);
 
-export { useScrollListener, ScrollContext };
+export { useScroll, ScrollContext };

@@ -20,6 +20,7 @@ const Footer = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
                         height={48}
                         width={189}
                         alt="nerdyknacks.com logo"
+                        priority
                     />
                 </div>
             </div>

@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
+import { useScroll } from "@/hooks/use-scroll";
 
 interface NavigationLinkProps extends HTMLAttributes<HTMLAnchorElement> {
     href: string;
@@ -55,11 +56,23 @@ NavigationLink.displayName = "NavigationLink";
 const Navbar = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
     ({ className, ...props }, ref) => {
         const pathname = usePathname();
+        const scroll = useScroll();
+
+        const [hideNavbar, setHideNavbar] = React.useState<boolean>(false);
+
+        React.useEffect(() => {
+            if (scroll.y > 300 && scroll.lastY - scroll.y < 0) {
+                setHideNavbar(true);
+            } else {
+                setHideNavbar(false);
+            }
+        }, [scroll.y, scroll.lastY]);
 
         return (
             <nav
                 className={cn(
-                    "w-full min-h-16 flex flex-row items-center px-28 shadow-lg bg-secondary",
+                    "sticky top-0 w-full min-h-16 flex flex-row items-center px-28 shadow-lg bg-secondary transform duration-300 ease-in-out",
+                    hideNavbar ? "-translate-y-full" : "",
                     className
                 )}
                 {...props}
@@ -72,6 +85,7 @@ const Navbar = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
                             height={40}
                             width={114}
                             alt="nerdyknacks.com logo"
+                            priority
                         />
                     </Link>
                 </div>
