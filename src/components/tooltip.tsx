@@ -41,7 +41,7 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(
 
         return (
             <span
-                onClick={copyToClipboard}
+                onClick={() => clickToCopy && copyToClipboard()}
                 onMouseEnter={() => setIsVisible(true)}
                 onMouseLeave={() => setIsVisible(false)}
                 className={cn(
