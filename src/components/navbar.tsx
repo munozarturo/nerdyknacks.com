@@ -61,7 +61,7 @@ const Navbar = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
         const [hideNavbar, setHideNavbar] = React.useState<boolean>(false);
 
         React.useEffect(() => {
-            if (scroll.y > 300 && scroll.lastY - scroll.y < 0) {
+            if (scroll.y > 150 && scroll.lastY - scroll.y < 0) {
                 setHideNavbar(true);
             } else {
                 setHideNavbar(false);
