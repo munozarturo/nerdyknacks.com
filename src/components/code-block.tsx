@@ -28,7 +28,7 @@ const CodeBlock = React.forwardRef<HTMLDivElement, CodeBlockProps>(
                         {language}
                     </div>
                     <Tooltip
-                        tooltipText="click to copy code"
+                        tooltipText="click to copy"
                         copyText={code}
                         clickToCopy
                         onCopyDisplay="copied"

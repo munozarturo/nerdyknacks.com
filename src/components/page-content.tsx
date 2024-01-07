@@ -9,7 +9,7 @@ const PageContent = React.forwardRef<
     return (
         <div
             className={cn(
-                "w-full md:w-5/6 max-w-[768px] flex flex-col px-4 md:px-0 py-2 text-primary-500",
+                "w-full md:w-5/6 max-w-[768px] flex flex-col px-4 md:px-0 py-4 text-primary-500",
                 className
             )}
             ref={ref}
