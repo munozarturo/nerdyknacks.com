@@ -65,6 +65,8 @@ $$ LANGUAGE plpgsql;
 
 CREATE OR REPLACE FUNCTION set_article_tags(article_id INTEGER, tags TEXT[])
 RETURNS VOID AS $$
+DECLARE
+    tag TEXT;
 BEGIN
     -- Delete existing tags for the article
     DELETE FROM article_tags WHERE article_id = article_id;
@@ -78,6 +80,8 @@ $$ LANGUAGE plpgsql;
 
 CREATE OR REPLACE FUNCTION set_article_technologies(article_id INTEGER, technologies TEXT[])
 RETURNS VOID AS $$
+DECLARE
+    technology TEXT;
 BEGIN
     -- Delete existing technologies for the article
     DELETE FROM article_technologies WHERE article_id = article_id;
