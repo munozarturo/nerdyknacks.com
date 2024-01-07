@@ -1,3 +1,55 @@
+CREATE OR REPLACE FUNCTION get_all_articles()
+RETURNS TABLE(
+    article_id INTEGER,
+    article_title VARCHAR,
+    article_subtitle VARCHAR,
+    article_timestamp TIMESTAMPTZ,
+    article_read_time INTEGER,
+    article_technologies TEXT[],
+    article_tags TEXT[]
+) AS $$
+BEGIN
+    RETURN QUERY
+    SELECT
+        a.id,
+        a.title,
+        a.subtitle,
+        a.created_at,
+        a.read_time,
+        ARRAY(SELECT t.technology FROM article_technologies t WHERE t.article_id = a.id) AS technologies,
+        ARRAY(SELECT tg.tag FROM article_tags tg WHERE tg.article_id = a.id) AS tags
+    FROM
+        article a;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE FUNCTION get_article(_article_id INTEGER)
+RETURNS TABLE(
+    article_id INTEGER,
+    article_title VARCHAR,
+    article_subtitle VARCHAR,
+    article_timestamp TIMESTAMPTZ,
+    article_read_time INTEGER,
+    article_technologies TEXT[],
+    article_tags TEXT[]
+) AS $$
+BEGIN
+    RETURN QUERY
+    SELECT
+        a.id,
+        a.title,
+        a.subtitle,
+        a.created_at,
+        a.read_time,
+        ARRAY(SELECT t.technology FROM article_technologies t WHERE t.article_id = a.id) AS technologies,
+        ARRAY(SELECT tg.tag FROM article_tags tg WHERE tg.article_id = a.id) AS tags
+    FROM
+        article a
+    WHERE
+        a.id = _article_id;
+END;
+$$ LANGUAGE plpgsql;
+
 CREATE OR REPLACE FUNCTION create_article(title VARCHAR, subtitle VARCHAR, content TEXT)
 RETURNS INTEGER AS $$
 DECLARE
