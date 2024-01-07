@@ -8,6 +8,7 @@ import {
     zenburn,
 } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
+import { CodeBlock } from "@/components/code-block";
 import { HTMLAttributes } from "react";
 import { Icons } from "@/components/icons";
 import Markdown from "react-markdown";
@@ -58,43 +59,11 @@ export default function Home() {
 
                         const code = String(children).replace(/\n$/, "");
 
-                        return match ? (
-                            <div className="bg-secondary-500 rounded-md border-2 flex flex-col my-2 mx-4">
-                                <div className="flex flex-row items-center justify-between gap-2 bg-primary-500 text-secondary-500 p-2 font-bold font-sans">
-                                    <div className="flex flex-row gap-2">
-                                        <Icons.code
-                                            fill="#1e1e1e"
-                                            width={24}
-                                            height={24}
-                                        />
-                                        {match[1]}
-                                    </div>
-                                    <Tooltip
-                                        tooltipText="click to copy code"
-                                        copyText={code}
-                                        clickToCopy
-                                        onCopyDisplay="copied"
-                                    >
-                                        <Icons.copy
-                                            fill="#1e1e1e"
-                                            width={24}
-                                            height={24}
-                                        />
-                                    </Tooltip>
-                                </div>
-                                <SyntaxHighlighter
-                                    language={match[1]}
-                                    wrapLines={true}
-                                    wrapLongLines={true}
-                                    PreTag="div"
-                                    children={code}
-                                    style={monokaiSublime}
-                                ></SyntaxHighlighter>
-                            </div>
-                        ) : (
-                            <code {...rest} className={className}>
-                                {children}
-                            </code>
+                        return (
+                            <CodeBlock
+                                language={match?.[1] || ""}
+                                code={code}
+                            />
                         );
                     },
                 }}
